@@ -2,7 +2,6 @@
 
 namespace App\Filament\Pages;
 
-use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -14,7 +13,6 @@ use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
-use Illuminate\Support\Facades\Auth;
 
 class Articlepage extends Page
 {
@@ -67,9 +65,6 @@ class Articlepage extends Page
                                         ['bold', 'italic', 'underline', 'strike', 'highlight', 'link', 'undo', 'redo'],
                                     )
                                     ->placeholder('Write a description for your service')->columnSpanFull(),
-                                Hidden::make('type')->default('service'),
-                                Hidden::make('user_id')->default(fn () => Auth::id()),
-                                Hidden::make('profile_id')->default(fn () => Auth::user()->profile?->id ?? null),
                             ]),
                     ])->columnSpanFull(),
 
